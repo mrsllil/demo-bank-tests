@@ -12,6 +12,7 @@ https://jaktestowac.pl/lesson/pw1s01l01/
 https://github.com/jaktestowac/playwright_automatyzacja_wprowadzenie
 - code repository (my version)  
 https://github.com/mrsllil/demo-bank-tests
+test
 
 
 ## Commands
