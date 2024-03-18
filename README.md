@@ -13,6 +13,7 @@ https://github.com/jaktestowac/playwright_automatyzacja_wprowadzenie
 - code repository (my version)  
 https://github.com/mrsllil/demo-bank-tests
 
+
 ## Commands
 - check `NodeJS` version  
 `node -v`
@@ -26,6 +27,8 @@ https://github.com/mrsllil/demo-bank-tests
 `npx playwright test --headed`
 - view report  
 `npx playwright show-report`
+- cancelling Node process  
+hit twice <kbd>Ctrl</kbd> + <kbd>C</kbd>
 
 ## Playwright Config modifications
 - config file `playwright.config.ts`
@@ -39,9 +42,23 @@ https://github.com/mrsllil/demo-bank-tests
     // },
     ```
 
-
 ## Visual Studio Code
 - Preview: for README.md
 - Autosave: in File -> Auto Save
-- Timeline: file context menu
-- Formatting: editor -> context menu -> Format document
+- Timeline: file context menu -> Open Timeline
+- Formatting: editor -> context menu -> Format Document
+
+## Playwright snippets
+- test:
+    ```javascript
+    test('test description', async ({ page }) => {
+    
+    });
+    ```
+- describe:
+    ```javascript
+     test.describe('Group description', () => {
+
+     });
+    ```
+- running one test: `test.only`
