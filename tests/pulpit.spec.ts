@@ -16,7 +16,8 @@ test.describe('Pulpit tests', () => {
 
         await page.getByRole('button', { name: 'wykonaj' }).click();
         await page.getByTestId('close-button').click();
-        await page.getByRole('link', { name: 'Przelew wykonany! Chuck' }).click();
+
+        await expect(page.locator('#show_messages')).toHaveText('Przelew wykonany! Chuck Demobankowy - 150,00PLN - Zwrot środków');
     });
 
 });
