@@ -1,18 +1,20 @@
 # Test Automation training from jaktestowac.pl
+
 ### Application of training knowledge in practice
 
 ## Links
+
 - course  
-https://jaktestowac.pl/course/playwright-wprowadzenie/
+  https://jaktestowac.pl/course/playwright-wprowadzenie/
 - test site  
-https://demo-bank.vercel.app/  
-if link is broken check  
-https://jaktestowac.pl/lesson/pw1s01l01/
-- code repository (from training) 
-https://github.com/jaktestowac/playwright_automatyzacja_wprowadzenie
+  https://demo-bank.vercel.app/  
+  if link is broken check  
+  https://jaktestowac.pl/lesson/pw1s01l01/
+- code repository (from training)
+  https://github.com/jaktestowac/playwright_automatyzacja_wprowadzenie
 - code repository (my version)  
-https://github.com/mrsllil/demo-bank-tests
-test
+  https://github.com/mrsllil/demo-bank-tests
+  test
 
 ## Commands
 
@@ -43,7 +45,7 @@ test
   `npx @playwright/test --version`
 
 ## Visual Studio Code
---
+
 ### Functions
 
 - Preview: for README.md
@@ -95,17 +97,17 @@ test
 
 - import:
   ```typescript
-  import { test, expect } from "@playwright/test";
+  import { test, expect } from '@playwright/test';
   ```
 - test:
   ```typescript
-  test("test description", async ({ page }) => {
+  test('test description', async ({ page }) => {
     //your code
   });
   ```
 - describe:
   ```typescript
-  test.describe("Group description", () => {
+  test.describe('Group description', () => {
     //your code
   });
   ```
