@@ -43,7 +43,7 @@ test
   `npx @playwright/test --version`
 
 ## Visual Studio Code
-
+--
 ### Functions
 
 - Preview: for README.md
