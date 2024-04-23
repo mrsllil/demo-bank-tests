@@ -54,8 +54,6 @@
 - Preview: for README.md
 - Autosave: in File -> Auto Save
 - Timeline: file context menu -> Open Timeline
-- Formatting: editor -> context menu -> Format Document
-- Formatting shortcut: <kbd>Shift</kbd> + <kbd>Alt</kbd> + <kbd>F</kbd>
 - Searching: editor -> <kbd>CTRL</kbd> + <kbd>F</kbd>
 - Accept hint in editor: <kbd>Enter</kbd>
 - Comment/Uncomment: <kbd>Ctrl</kbd> + <kbd>/</kbd>
@@ -63,18 +61,41 @@
 - Extract to variable: <kbd>Ctrl</kbd> + <kbd>Shift</kbd> + <kbd>R</kbd>
 - Move line i.e. up: <kbd>Alt</kbd> + <kbd>↑</kbd>
 - Show autocomplete suggestion: <kbd>Ctrl</kbd> + <kbd>Spacebar</kbd>
+- Formatting: editor -> context menu -> Format Document
+- Formatting shortcut: <kbd>Shift</kbd> + <kbd>Alt</kbd> + <kbd>F</kbd>
+- Format code on save: 
+  - Top menu: View -> Open Command Palette
+  - Type: user settings - chose `Preferences: Open User Settings`
+  - Search: format on save
+  - Edit: check `Editor Format On Save`
+- Reload Window: 
+  - <kbd>Ctrl</kbd> + <kbd>Shift</kbd> + <kbd>P</kbd>
+  - Find and use: `Developer: Reload Window`
+- Rename in opened files: <kbd>F2</kbd>
+- Show quick fix: <kbd>Ctrl</kbd> + </kbd>.</kbd>
 - Creating a new variable: Refactor <kbd>Ctrl</kbd> + <kbd>Shift</kbd> + <kbd>R</kbd> -> Extract to constant in enclosing scope
 
 ### Terminal (console)
-- Use more than one terminal: <kbd>+</kbd> button in TERMINAL
+
+- Open: <kbd>Ctrl</kbd> + <kbd>Shift</kbd> + <kbd>`</kbd>
 - Cancelling Node process: hit twice <kbd>Ctrl</kbd> + <kbd>C</kbd>
 - Open file: <kbd>Ctrl</kbd> + mouse click
 - Autocomplete: <kbd>Tab</kbd>
+- Paste in terminal shortcuts:
+  - <kbd>Ctrl</kbd> + <kbd>V</kbd>
+  - <kbd>Ctrl</kbd> + <kbd>Shift</kbd> + <kbd>V</kbd>
+  - <kbd>Shift</kbd> + <kbd>Insert</kbd>
+  - right mouse button
+- Use more than one terminal: <kbd>+</kbd> sign in TERMINAL
+- Use another terminal (Git Bash, JavaScript Debug): <kbd>˅</kbd> sign in TERMINAL
+
+To quickly evaluate code use `DEBUG CONSOLE`.
 
 ## Extensions
 
 - GitLens - view details of your repository i.e. commits history
 - Prettier - default formatter for editor
+- Playwright Test for VSCode - run and record tests form VSC
 
 ## Playwright
 
@@ -126,6 +147,7 @@
   test.befoerEach('async ({ page }) => {
     //your code
   });
+  ```
 - running given test: `test.only`
 
 ### Locators
@@ -169,3 +191,19 @@
 - run Prettier  
   `npx prettier --write .`
 - additionaly you can install VSC extension: **Prettier**
+  - and set default VSC formatter as Prettier (right mouse button and `Format document with ...`)
+
+### package.json example scripts
+
+- single command:  
+  `"test": "npx playwright test",`
+- command with parameters:  
+  `"test:headed": "npx playwright test --headed",`
+- other script with added parameters:  
+  `"test:pulpit:hd" : "npm run test tests/pulpit.spec.ts -- --headed"`
+
+Scripts can be run in standard and debug mode by:
+
+- hovering over script name and using opition **Run**
+- entering command `npm run script_name` i.e. `npm run test`
+- using `NPM Scripts` tab in **Explorer** view (need to be enabled in **EXPLORER** settings)
