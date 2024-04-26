@@ -206,3 +206,55 @@ Scripts can be run in standard and debug mode by:
 - hovering over script name and using opition **Run**
 - entering command `npm run script_name` i.e. `npm run test`
 - using `NPM Scripts` tab in **Explorer** view (need to be enabled in **EXPLORER** settings)
+
+## Simple Page Object Model
+
+Simple implementation of Page Object Model can be based on _classes_ that represents and implements tested pages.
+Those calsses contains _locators_ of elements, that are used in tests, e.g. buttons, inputs etc.
+
+Directory structure:
+
+```
++-- Projects
+|   +-- pages
+|       +-- login.page.ts
+|       +-- ...
+|   +-- tests
+|       +-- login.spac.ts
+|       +-- ...
+```
+
+### Page implementation
+
+Simple implementation of login page in `./pages/login.page.ts`:
+
+```
+import { Page } from '@playwright/test';
+
+export class LoginPage {
+  constructor(private page: Page) {}
+
+  loginInput = this.page.getByTestId('login-input');
+  passwordInput = this.page.getByTestId('password-input');
+  loginButton = this.page.getByTestId('login-button');
+}
+
+```
+
+### Usage in tests
+
+First import of selected page:
+
+```
+import { LoginPage } from '../pages/login.page';
+```
+
+Then use page in tests:
+
+```
+    // Act
+    const loginPage = new LoginPage(page)
+    await loginPage.loginInput.fill(userId)
+    await loginPage.passwordInput.fill(userPassword)
+    await loginPage.loginButton.click()
+```
