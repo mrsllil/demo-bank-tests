@@ -37,7 +37,6 @@ test.describe('Pulpit tests', () => {
     await pulpitPage.closeButton.click();
 
     // Assert
-    //await expect(page.locator('#show_messages')).toHaveText(expectedMessage);
     await expect(pulpitPage.messageText).toHaveText(expectedMessage);
   });
 
