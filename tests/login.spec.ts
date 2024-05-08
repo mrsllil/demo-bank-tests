@@ -1,6 +1,7 @@
 import { test, expect } from '@playwright/test';
 import { loginData } from '../test-data/login.data';
 import { LoginPage } from '../pages/login.page';
+import { PulpitPage } from '../pages/pulpit.page';
 
 test.describe('User login to Demobank', () => {
   test.beforeEach(async ({ page }) => {
@@ -20,7 +21,8 @@ test.describe('User login to Demobank', () => {
     await loginPage.loginButton.click();
 
     // Assert
-    await expect(page.getByTestId('user-name')).toHaveText(expectedUserName);
+    const pulpitPage = new PulpitPage(page);
+    await expect(pulpitPage.userName).toHaveText(expectedUserName);
   });
 
   test('unsuccessful login with too short username', async ({ page }) => {
@@ -44,7 +46,6 @@ test.describe('User login to Demobank', () => {
     const expectedErrorMessage = 'hasło ma min. 8 znaków';
 
     // Act
-
     const loginPage = new LoginPage(page);
     await loginPage.loginInput.fill(userId);
     await loginPage.passwordInput.fill(incorrectPassword);
