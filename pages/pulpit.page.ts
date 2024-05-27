@@ -13,9 +13,9 @@ export class PulpitPage {
 
   closeButton = this.page.getByTestId('close-button');
 
-  totupReceiver = this.page.locator('#widget_1_topup_receiver');
-  totupAmount = this.page.locator('#widget_1_topup_amount');
-  totupAgreementCheckbox = this.page.locator(
+  topupReceiver = this.page.locator('#widget_1_topup_receiver');
+  topupAmount = this.page.locator('#widget_1_topup_amount');
+  topupAgreementCheckbox = this.page.locator(
     '#uniform-widget_1_topup_agreement',
   );
 
@@ -25,4 +25,29 @@ export class PulpitPage {
   moneyValueText = this.page.locator('#money_value');
 
   userName = this.page.getByTestId('user-name');
+
+  async executeQuickPayment(
+    receiverId: string,
+    transferAmount: string,
+    transferTitle: string,
+  ): Promise<void> {
+    await this.transferReceiver.selectOption(receiverId);
+    await this.transferAmount.fill(transferAmount);
+    await this.transferTitle.fill(transferTitle);
+
+    await this.performTransfer.click();
+    await this.closeButton.click();
+  }
+
+  async executeMobileTopUp(
+    receiverNumber: string,
+    transferAmount: string,
+  ): Promise<void> {
+    await this.topupReceiver.selectOption(receiverNumber);
+    await this.topupAmount.fill(transferAmount);
+    await this.topupAgreementCheckbox.click();
+
+    await this.confirmButton.click();
+    await this.closeButton.click();
+  }
 }
