@@ -237,11 +237,17 @@ export class LoginPage {
   loginInput = this.page.getByTestId('login-input');
   passwordInput = this.page.getByTestId('password-input');
   loginButton = this.page.getByTestId('login-button');
+
+  async login(userId: string, userPassword:string): Promise<void> {
+    await this.loginInput.fill(userId)
+    await this.passwordInput.fill(userPassword)
+    await this.loginButton.click()
+  }
 }
 
 ```
 
-### Usage in tests
+#### Usage in tests
 
 First import of selected page:
 
@@ -254,7 +260,5 @@ Then use page in tests:
 ```
     // Act
     const loginPage = new LoginPage(page)
-    await loginPage.loginInput.fill(userId)
-    await loginPage.passwordInput.fill(userPassword)
-    await loginPage.loginButton.click()
+    await loginPage.login(userId, userPassword)
 ```
